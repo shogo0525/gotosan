@@ -11,6 +11,15 @@
 
 <header>
 	<nav class="navbar navbar-inverse">
+		<% flash.each do |key, value| %>
+			<% key = "info" if key == "notice"%>
+			<% key = "danger"  if key == "alert"%>
+	<%# content_tag :div, value, class: "alert alert-#{key}"%>
+			<div class="alert alert-<%= key %>">
+			  <button class="close" data-dismiss="alert">×</button>
+			  <%= value %>
+			</div>
+		<% end %>
 	  <div class="container-fluid">
 	    <div class="navbar-header">
 	      <a class="navbar-brand" href="#">囲碁知恵袋</a>
@@ -39,6 +48,9 @@
 	  </div>
 	</nav>
 </header>
+
+
+<%= notice %>
 
 <%= yield %>
 
