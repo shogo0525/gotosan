@@ -6,6 +6,7 @@ class QuestionsController < ApplicationController
   end
 
   def new
+    @question = Question.new
   end
 
   def create
@@ -19,4 +20,13 @@ class QuestionsController < ApplicationController
 
   def destroy
   end
+
+  private
+    def question_params
+      params.require(:question).permit(:title, :content)
+    end
+
+    def set_question
+      @question = Question.find(params[:id])
+    end
 end

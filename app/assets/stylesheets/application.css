@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+
+.bolder {
+	font-weight: bolder;
+}
+
+.fSize17 {
+	font-size: 1.7rem;
+}
