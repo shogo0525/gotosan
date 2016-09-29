@@ -1,4 +1,4 @@
-<%= form_for(@question), remote: true do |f| %>
+<%= form_for(@question, :html => {:class => 'form'}) do |f| %>
 
     <%# f.error_messages! %>
       <% if @question.errors.any? %>

@@ -1,8 +1,13 @@
 class QuestionsController < ApplicationController
+  before_action :set_question, only:[:show, :edit, :update, :destroy]
+  
   def index
+    @questions = Question.all.order(created_at: :desc)
   end
 
   def show
+    #@comment = @topic.comments.build
+    #@comments = @topic.comments
   end
 
   def new
