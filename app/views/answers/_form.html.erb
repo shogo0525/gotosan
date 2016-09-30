@@ -1,0 +1,9 @@
+<%= form_for([question, answer], remote: true) do |f| %>
+  <%= f.hidden_field :question_id %>
+  <div class="field">
+    <%= f.text_field :content, placeholder: "内容", class: "form-control"  %>
+  </div>
+  <div class="actions">
+    <%= f.submit "回答する", class: "btn btn-sm btn-primary" %>
+  </div>
+<% end %>

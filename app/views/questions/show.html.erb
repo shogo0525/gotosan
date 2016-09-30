@@ -30,16 +30,15 @@
 			</div>
 		</div>
 
-		<% if false %>
-		<h3>コメント一覧</h3>
+		<h3>回答一覧</h3>
 	  <div class="panel panel-default">
 	  	<div class="panel-heading">
-			  <div id="comments_area">
-			    <%= render partial: 'comments/index', locals: { comments: @comments, topic: @topic } %>
+			  <div id="answers_area">
+			    <%= render partial: 'answers/index', locals: { answers: @answers, question: @question } %>
 			  </div>
 			</div>
 		</div>
-	  <%= render partial: 'comments/form', locals: { comment: @comment, topic: @topic } %>
-	  <% end %>
+	  <%= render partial: 'answers/form', locals: { answer: @answer, question: @question } %>
+
 	</div>
 </div>

@@ -6,8 +6,8 @@ class QuestionsController < ApplicationController
   end
 
   def show
-    #@comment = @topic.comments.build
-    #@comments = @topic.comments
+    @answer = @question.answers.build
+    @answers = @question.answers
   end
 
   def new
