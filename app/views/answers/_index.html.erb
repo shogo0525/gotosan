@@ -2,8 +2,10 @@
   <% answers.each do |answer| %>
     <% unless answer.id.nil? %>
       <li>
-        <p class="left"><%= "田中太郎" %>さんがコメントしました。</p>
-        <p class="left"><%= answer.content %></p>
+        <p class="left"><%= answer.user.name %>さんがコメントしました。</p>
+        <p class="left">
+          <%= simple_format(h(answer.content)) %>
+        </p>
 
         <%if false %>
         <% if current_user.id == comment.user.id %>

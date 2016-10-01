@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_question, only:[:show, :edit, :update, :destroy]
   
   def index
@@ -16,7 +17,7 @@ class QuestionsController < ApplicationController
 
   def create
     @question = Question.new(question_params)
-    #@question.user_id = current_user.id
+    @question.user_id = current_user.id
     if @question.save
       redirect_to root_path, success: "Successfully created your prototype."
     else

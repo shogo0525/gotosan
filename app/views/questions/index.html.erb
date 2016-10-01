@@ -10,7 +10,7 @@
 					<div class="panel-heading">
 						<div>
 							<%# image_tag('no_image.png', :size => "20×20") %>
-							<%= '田中太郎' %><br>
+							<%= question.user.name %><br>
 							<%= count_answer(question.id) %>
 						</div>
 					</div>
@@ -21,6 +21,7 @@
 						</h3>
 						<div class=body"">
 							<%= question.content %>
+							<%# simple_format(h(question.content)) %>
 						</div>
 					</div>
 					<div class="panel-footer">

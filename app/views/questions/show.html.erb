@@ -1,44 +1,51 @@
 <div class="container">
-  <div class="wrapper col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+  <div class="col-sm-12 col-md-8">
 
-	  <div class="panel panel-default">
-	  	<div class="panel-heading">
-				<div>
-					<%# image_tag('no_image.png', :size => "20×20") %>
-					<%= '田中太郎' %>
+  	<div class="content_question">
+  		<div class="content_main_question">
+  			<h3><%= @question.title %></h3>
+  			<p class="body"><%= simple_format(h(@question.content)) %></p>
+  			<p class="right"><%= @question.user.name %></p>
+  		</div><!--content_main_question-->
+
+		  <div class="panel panel-default">
+		  	<div class="panel-heading">
+					<div>
+						<%# image_tag('no_image.png', :size => "20×20") %>
+						<%= @question.user.name %>
+					</div>
+				</div>
+
+				<div class="panel-body">
+					<h3>
+						<%= @question.title %>
+					</h3>
+					<div class=body"">
+						<%= simple_format(h(@question.content)) %>
+					</div>
+				</div>
+				<div class="panel-footer">
+
+					<% if false %>
+					<% if question.user_id == current_user.id %>
+			      <%= link_to "編集", edit_topic_path(question.id), class: 'btn btn-sm btn-success' %>
+			      <%= link_to '削除', question_path(question.id), method: :delete, data: {confirm: "本当に削除していいですか？?"}, class: 'btn btn-sm btn-danger' %>
+		      <% end %>
+		      <%= link_to "詳細", question_path(question.id), class: 'btn btn-sm btn-default' %>
+		      <% end %>
+
 				</div>
 			</div>
 
-			<div class="panel-body">
-				<h3>
-					<%= @question.title %>
-				</h3>
-				<div class=body"">
-					<%= @question.content %>
+			<h3>回答一覧</h3>
+		  <div class="panel panel-default">
+		  	<div class="panel-heading">
+				  <div id="answers_area">
+				    <%= render partial: 'answers/index', locals: { answers: @answers, question: @question } %>
+				  </div>
 				</div>
 			</div>
-			<div class="panel-footer">
-
-				<% if false %>
-				<% if question.user_id == current_user.id %>
-		      <%= link_to "編集", edit_topic_path(question.id), class: 'btn btn-sm btn-success' %>
-		      <%= link_to '削除', question_path(question.id), method: :delete, data: {confirm: "本当に削除していいですか？?"}, class: 'btn btn-sm btn-danger' %>
-	      <% end %>
-	      <%= link_to "詳細", question_path(question.id), class: 'btn btn-sm btn-default' %>
-	      <% end %>
-
-			</div>
-		</div>
-
-		<h3>回答一覧</h3>
-	  <div class="panel panel-default">
-	  	<div class="panel-heading">
-			  <div id="answers_area">
-			    <%= render partial: 'answers/index', locals: { answers: @answers, question: @question } %>
-			  </div>
-			</div>
-		</div>
-	  <%= render partial: 'answers/form', locals: { answer: @answer, question: @question } %>
-
+		  <%= render partial: 'answers/form', locals: { answer: @answer, question: @question } %>
+		</div><!--content_question-->
 	</div>
 </div>

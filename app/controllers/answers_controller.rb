@@ -1,7 +1,9 @@
 class AnswersController < ApplicationController
+	before_action :authenticate_user!
+
   def create
     #@answer = current_user.answers.build(answer_params)
-    @answer = Answer.new(answer_params)
+    @answer = current_user.answers.build(answer_params)
     @question = @answer.question
 
     # クライアント要求に応じてフォーマットを変更

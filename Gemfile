@@ -96,3 +96,5 @@ gem 'fog'
 
 gem 'dotenv-rails'
 gem 'unicorn'
+
+gem 'acts-as-taggable-on', '~> 3.4'

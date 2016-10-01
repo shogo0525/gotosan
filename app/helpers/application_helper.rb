@@ -8,4 +8,19 @@ module ApplicationHelper
 			return "未回答の質問"
 		end
 	end
+
+	def check_username(user_id)
+		username = User.find(user_id)
+
+		if username.blank?
+			default_username = "igo" + format("%05d", user_id)  
+		else
+			return username
+		end
+	end
+
+	def set_default_name
+		return "IGO"
+	end
+
 end
