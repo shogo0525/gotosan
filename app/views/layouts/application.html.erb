@@ -36,22 +36,25 @@
 	      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 	      <% end %>
 	      <li><%= link_to "質問する", new_question_path %></li>
-	      <li class="dropdown">
-	        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span></a>
-	        <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
-	          <li><a href="#"><span class="fSize17 bolder">田中太郎</span><br>プロフィールを編集</a></li>
-	          <li role="separator" class="divider"></li>
-	          <li><a href="#">アカウント設定</a></li>
-	          <li><a href="#">ログアウト</a></li> 
-	        </ul>
-        </li>
+
+	      <% if user_signed_in? %>
+		      <li class="dropdown">
+		        <a class="dropdown-toggle" data-toggle="dropdown" href="#"><span class="glyphicon glyphicon-user"></span></a>
+		        <ul class="dropdown-menu" aria-labelledby="dropdownMenuDivider">
+		          <li><a href="#"><span class="fSize17 bolder">田中太郎</span><br>プロフィールを編集</a></li>
+		          <li role="separator" class="divider"></li>
+		          <li><a href="#">アカウント設定</a></li>
+		          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
+		        </ul>
+	        </li>
+				<% else %>
+					<li><%= link_to 'ログイン', new_user_session_path  %></li>
+				<% end %>
+	      
 	    </ul>
 	  </div>
 	</nav>
 </header>
-
-
-<%= notice %>
 
 <%= yield %>
 
