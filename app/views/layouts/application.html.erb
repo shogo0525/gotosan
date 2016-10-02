@@ -44,7 +44,7 @@
 
 		          <li><a href=<%= edit_user_registration_path %>><span class="fSize17 bolder"><%= current_user.name %></span><br>プロフィールを編集</a></li>
 		          <li role="separator" class="divider"></li>
-		          <!--<li><a href="#">アカウント設定</a></li>-->
+							<li><%= link_to 'アカウント設定', edit_user_path  %></li>
 		          <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
 		        </ul>
 	        </li>
