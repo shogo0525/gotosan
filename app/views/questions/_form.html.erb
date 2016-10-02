@@ -21,6 +21,11 @@
 	    <%= f.label :内容 %>
 	    <%= f.text_area :content, :rows => "10", class: 'form-control' %>
     </div>
+
+    <div class="field">
+      <%= f.check_box :anonym, { class:"custom-checkbox" } %>
+      <%= f.label_tag :anonym, 'ユーザー名非公開で投稿' %>
+    </div>
     <br>
 
     <!-- タグクラウド -->

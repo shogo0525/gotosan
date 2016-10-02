@@ -7,7 +7,7 @@ class User < ActiveRecord::Base
   has_many :questions, dependent: :destroy
   has_many :answers, dependent: :destroy
 
-  validates :name, presence: true
+  validates :name, presence: true, length: { in: 2..20 } 
 
   #Paperclipの設定
   has_attached_file :image,
