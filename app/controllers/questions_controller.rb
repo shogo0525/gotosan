@@ -13,6 +13,7 @@ class QuestionsController < ApplicationController
 
   def new
     @question = Question.new
+    #@tags = get_tag_list
   end
 
   def create
@@ -34,9 +35,13 @@ class QuestionsController < ApplicationController
   def destroy
   end
 
+  def click_tag
+
+  end
+
   private
     def question_params
-      params.require(:question).permit(:title, :content)
+      params.require(:question).permit(:title, :content, :question[tag])
     end
 
     def set_question

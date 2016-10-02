@@ -22,6 +22,19 @@
 	    <%= f.text_area :content, :rows => "10", class: 'form-control' %>
     </div>
     <br>
+
+    <!-- タグクラウド -->
+    <% if false %>
+    <% tags = get_tag_list %>
+    <div class="tag_list">
+      <ul>
+      <% tags.each do |tag| %>
+        <li><%= f.check_box  :tag_ids , {multiple: true} %> <%= tag %></li>
+      <% end %>
+      </ul>
+    </div>
+    <% end %>
+
     <div class="actions">
     	<%= f.submit '質問する', class: 'btn btn-primary btn-block' %>
     </div>

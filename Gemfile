@@ -87,6 +87,7 @@ gem 'omniauth-facebook'
 
 #image uploader
 gem 'carrierwave'
+gem 'paperclip'
 gem 'rmagick'
 
 gem 'pusher'

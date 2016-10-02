@@ -40,13 +40,11 @@
         </div>
       <%# end %>
 
-      <% if false %>
       <div class="field">
-        <%= profile_img(@user) if profile_img(@user) %>
-        <%= f.file_field :avatar %>
-        <%= f.hidden_field :avatar_cache %>
+        <%= image_tag @user.image("thumb") %>
+        <%# profile_img(@user) if profile_img(@user) %>
+        <%= f.file_field :image %>
       </div>
-      <% end %>
 
       <div class="actions">
         <%= f.submit "更新", class: 'btn btn-primary btn-block' %>
