@@ -27,6 +27,8 @@
 					</div>
 					<div class="panel-footer">
 
+						<%= question.tag_list %>
+						
 						<% if false %>
 						<% if question.user_id == current_user.id %>
 				      <%= link_to "編集", edit_topic_path(question.id), class: 'btn btn-sm btn-success' %>

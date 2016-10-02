@@ -5,7 +5,7 @@ class Question < ActiveRecord::Base
   belongs_to :user
   has_many :answers, dependent: :destroy
 
-  #タグ
-	acts_as_taggable_on :question_tags
+  #acts_as_taggable_on :tags のエイリアス
+	acts_as_taggable
 
 end
