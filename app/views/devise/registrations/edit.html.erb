@@ -41,8 +41,7 @@
       <%# end %>
 
       <div class="field">
-        <%= image_tag @user.image("thumb") %>
-        <%# profile_img(@user) if profile_img(@user) %>
+        <%= image_tag @user.image("thumb"), class: "img-circle" %>
         <%= f.file_field :image %>
       </div>
 
