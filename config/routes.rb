@@ -3,8 +3,14 @@ Rails.application.routes.draw do
   root to: "questions#index"
 
   devise_for :users, controllers: {
-    #registrations: 'users/registrations'
+    registrations: 'users/registrations'
   }
+
+  resource :user, only: [:edit] do
+    collection do
+      patch 'update_password'
+    end
+  end
 
   resources :questions do
     resources :answers

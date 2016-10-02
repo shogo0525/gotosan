@@ -35,8 +35,8 @@
         </div>
 
         <div class="field">
-          <%= f.label :current_password %> <i></i><br />
-          <%= f.password_field :current_password, class: "form-control", autocomplete: "off" %>
+          <%# f.label :current_password %> <i></i><br />
+          <%# f.password_field :current_password, class: "form-control", autocomplete: "off" %>
         </div>
       <%# end %>
 
@@ -44,6 +44,8 @@
         <%= image_tag @user.image("thumb"), class: "img-circle" %>
         <%= f.file_field :image %>
       </div>
+
+      <%= link_to "パスワードを変更する", edit_user_path %>
 
       <div class="actions">
         <%= f.submit "更新", class: 'btn btn-primary btn-block' %>

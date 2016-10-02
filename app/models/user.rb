@@ -17,4 +17,12 @@ class User < ActiveRecord::Base
     path: "#{Rails.root}/public/system/:class/image/:id.:style.:extension",
     url: "/system/:class/image/:id.:style.:extension"
   validates_attachment_content_type :image, content_type: /image/
+
+  def update_with_password(params, * options)
+		if params[:password].blank?
+			params.delete(:password)
+			params.delete(:password_confirmation) if params[:password_confirmation].blank?
+		end
+		update_attributes(params, * options)
+	end
 end
