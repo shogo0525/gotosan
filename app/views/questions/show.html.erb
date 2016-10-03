@@ -5,14 +5,14 @@
   		<div class="content_main_question">
   			<h3><%= @question.title %></h3>
   			<p class="body"><%= simple_format(h(@question.content)) %></p>
-  			<p class="right"><%= @question.user.name %></p>
+  			<p class="right"><%= get_user_name(@question) %></p>
   		</div><!--content_main_question-->
 
 		  <div class="panel panel-default">
 		  	<div class="panel-heading">
 					<div>
 						<%# image_tag('no_image.png', :size => "20×20") %>
-						<%= @question.user.name %>
+						<%= get_user_name(@question) %>
 					</div>
 				</div>
 

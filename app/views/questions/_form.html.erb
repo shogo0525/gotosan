@@ -22,11 +22,15 @@
 	    <%= f.text_area :content, :rows => "10", class: 'form-control' %>
     </div>
 
+    ファイル複数選択：<%= file_field_tag "images[]", type: :file, multiple: true %>
+
+    <!-- ユーザー名非公開機能 -->
+    <% if false %>
     <div class="field">
       <%= f.check_box :anonym, { class:"custom-checkbox" } %>
       <%= f.label_tag :anonym, 'ユーザー名非公開で投稿' %>
     </div>
-    <br>
+    <% end %>
 
     <!-- タグクラウド -->
     <% if false %>

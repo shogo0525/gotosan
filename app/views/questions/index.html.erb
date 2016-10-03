@@ -11,7 +11,7 @@
 						<div>
 							<%= image_tag question.user.image("tiny"), class: "img-circle" %>
 							<%# image_tag('no_image.png', :size => "20×20") %>
-							<%= question.user.name %><br>
+							<%= get_user_name(question) %><br>
 							<%= count_answer(question.id) %>
 						</div>
 					</div>
