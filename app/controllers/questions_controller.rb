@@ -8,17 +8,23 @@ class QuestionsController < ApplicationController
 
   def show
     @answer = @question.answers.build
+    @answer.athumbnails.build
+    #3.times { @answer.athumbnails.build }
     @answers = @question.answers
   end
 
   def new
     @question = Question.new
+    #@question.qthumbnails.build
+    3.times { @question.qthumbnails.build }
+    
     #@tags = get_tag_list
   end
 
   def create
     @question = Question.new(question_params)
     @question.user_id = current_user.id
+    #binding.pry
     if @question.save
       redirect_to root_path, success: "Successfully created your prototype."
     else
@@ -41,7 +47,7 @@ class QuestionsController < ApplicationController
 
   private
     def question_params
-      params.require(:question).permit(:title, :content, :anonym)
+      params.require(:question).permit(:title, :content, :anonym, qthumbnails_attributes: [:image, :image_cache])
     end
 
     def set_question

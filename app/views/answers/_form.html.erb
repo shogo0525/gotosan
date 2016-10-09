@@ -1,8 +1,14 @@
-<%= form_for([question, answer], remote: true) do |f| %>
+<%= form_for([question, answer], remote: true, multipart: true, authenticity_token: true) do |f| %>
   <%= f.hidden_field :question_id %>
   <div class="field">
     <%= f.text_area :content, placeholder: "内容", :rows => "5", class: "form-control"  %>
   </div>
+
+  Athumbnail選択：
+  <%= f.fields_for :athumbnails do |athumbnail| %>
+    <%= athumbnail.file_field :image %>
+  <% end %>
+
   <div class="actions">
     <%= f.submit "回答する", class: "btn btn-sm btn-primary" %>
   </div>

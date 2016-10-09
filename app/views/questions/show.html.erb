@@ -25,6 +25,10 @@
 					</div>
 				</div>
 				<div class="panel-footer">
+				  <% @question.qthumbnails.each do |qthumbnail| %>
+			    	<a href="<%= qthumbnail.image.url %>" target="_blank"><%= image_tag(qthumbnail.image.thumb.url) %></a>
+			  	<% end %>
+					
 
 					<% if false %>
 					<% if question.user_id == current_user.id %>

@@ -6,6 +6,9 @@
         <p class="left">
           <%= simple_format(h(answer.content)) %>
         </p>
+          <% answer.athumbnails.each do |athumbnail| %>
+            <a href="<%= athumbnail.image.url %>" target="_blank"><%= image_tag(athumbnail.image.thumb.url) %></a>
+          <% end %>
 
         <%if false %>
         <% if current_user.id == comment.user.id %>

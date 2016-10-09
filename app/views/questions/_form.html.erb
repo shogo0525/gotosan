@@ -1,4 +1,4 @@
-<%= form_for(@question, :html => {:class => 'form'}) do |f| %>
+<%= form_for(@question, :html => {:class => 'form'} , multipart: true) do |f| %>
 
     <%# f.error_messages! %>
       <% if @question.errors.any? %>
@@ -22,7 +22,14 @@
 	    <%= f.text_area :content, :rows => "10", class: 'form-control' %>
     </div>
 
-    ファイル複数選択：<%= file_field_tag "images[]", type: :file, multiple: true %>
+    ファイル複数選択：<%# file_field_tag "images[]", type: :file, multiple: true %>
+
+    Qathumbnail選択：
+    <%= f.fields_for :qthumbnails do |qthumbnail| %>
+      <%# image_tag(qthumbnail.image.thumb.url) %>
+      <%= qthumbnail.file_field :image %>
+      <%= qthumbnail.hidden_field :image_cache %>
+    <% end %>
 
     <!-- ユーザー名非公開機能 -->
     <% if false %>

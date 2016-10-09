@@ -77,6 +77,7 @@ gem 'faker'
 
 gem 'therubyracer', platforms: :ruby
 gem 'rails_admin'
+gem 'rails_admin_tag_list'
 
 gem 'cancan'
 
@@ -99,3 +100,5 @@ gem 'dotenv-rails'
 gem 'unicorn'
 
 gem 'acts-as-taggable-on', '~> 3.4'
+
+gem 'lightbox2-rails'

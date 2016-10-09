@@ -19,8 +19,9 @@
       </div>
 
       <div class="field">
-        <%= image_tag @user.image("thumb"), class: "img-circle" %>
-        <%= f.file_field :image %>
+        <%= profile_img(@user) if profile_img(@user) %>
+        <%= f.file_field :avatar %>
+        <%= f.hidden_field :avatar_cache %>
       </div>
 
       <%= link_to "パスワードを変更する", edit_user_path %>
