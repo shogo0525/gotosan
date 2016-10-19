@@ -6,7 +6,7 @@ class Question < ActiveRecord::Base
   has_many :answers, dependent: :destroy
 
   has_many :qthumbnails, dependent: :destroy
-  accepts_nested_attributes_for :qthumbnails
+  accepts_nested_attributes_for :qthumbnails, reject_if: lambda { |attributes| attributes['image'].blank? }
 
   #acts_as_taggable_on :tags のエイリアス
 	acts_as_taggable

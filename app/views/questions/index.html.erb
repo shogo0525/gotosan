@@ -1,33 +1,45 @@
 <div class="container">
 	<div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
- 
+ 		<div id="main">
+
 		<% @questions.each do |question| %>
-
 			<div class="question">
+				<div class="row">
 
-				<div class="panel panel-default">
+					<div class="col-xxs-7 poster">
+						<div class="icon user_icon pull-left">
+							<%= profile_img(question.user) %>
+						</div>
+						<span class="name pull-left"><%= get_user_name(question) %><%= get_user_level(question) %></span>
+					</div>
 
-					<div class="panel-heading">
-						<div>
-							<%= image_tag question.user.image("tiny"), class: "img-circle" %>
-							<%# image_tag('no_image.png', :size => "20×20") %>
-							<%= get_user_name(question) %><br>
-							<%= count_answer(question.id) %>
+					<div class="col-xxs-5 ca">
+						<div class="pull-right">
+							<span class="answer_count pull-left">
+								<span class="tag label"><%= count_answer(question.id) %></span>
+							</span>
 						</div>
 					</div>
 
-					<div class="panel-body">
-						<h3>
-							<%= link_to question.title, question_path(question.id) %>
-						</h3>
-						<div class=body"">
-							<%= question.content %>
-							<%# simple_format(h(question.content)) %>
+					<div class="clear"></div>
+
+					<div class="content balloon">
+						<h4><%= link_to question.title, question_path(question.id) %></h4>
+						<div class="body">
+							<%= question.content.truncate(100, separator: /\s/) %>
 						</div>
 					</div>
-					<div class="panel-footer">
 
-						<%= question.tag_list %>
+					<div class="tag-list">
+						<% question.tag_list.each do |tag| %>
+							<span class="label"><%= tag %></span>
+						<% end %>
+					</div>
+
+				</div>
+			</div>
+
+		
 						
 						<% if false %>
 						<% if question.user_id == current_user.id %>
@@ -37,10 +49,7 @@
 			      <%= link_to "詳細", question_path(question.id), class: 'btn btn-sm btn-default' %>
 			      <% end %>
 
-			    </div>
-	      </div>
-			</div>
-
 		<% end %>
+		</div><!--#main-->
 	</div>
 </div>

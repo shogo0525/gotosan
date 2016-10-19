@@ -2,6 +2,29 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.question {
+	.row {
+		background-color: #f8f8f8;
+		padding: 10px;
+		margin: 15px 0;
+	}
+	.content {
+	  margin: 5px 0;
+	  padding: 14px;
+	  display: block;
+	}
+}
+
+.question,
+.content_main_question {
+	div.tag-list {
+		margin: 0px;
+		span {
+			background-color: orange;
+		}
+	} 
+}
+
 .tag_list ul {
 	margin: 0;
 	padding: 0;

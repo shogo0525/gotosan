@@ -1,33 +1,45 @@
 <div class="container">
-  <div class="col-sm-12 col-md-8">
+	<div class="col-md-6 col-md-offset-3 col-sm-10 col-sm-offset-1">
+		<div id="main">
+
+			<div class="content_main_question">
+				<h3>Q. <%= @question.title %></h3>
+				<div class="body">
+					<%= simple_format(h(@question.content)) %>
+				</div>
+
+				<% unless @question.qthumbnails.blank? %>
+					<% @question.qthumbnails.each do |qthumbnail| %>
+				    <a href="<%= qthumbnail.image.url %>" target="_blank"><%= image_tag(qthumbnail.image.thumb.url) %></a>
+				  <% end %>
+			  <% end %>
+
+				<div class="tag-list">
+					<% @question.tag_list.each do |tag| %>
+						<span class="label"><%= tag %></span>
+					<% end %>
+				</div>
+				<div class="pull-right">
+					<%= get_user_name(@question) %>
+				</div>
+			</div><!--.content_main_question-->
+
+		</div><!--#main-->
 
   	<div class="content_question">
+
+  		<% if false %>
   		<div class="content_main_question">
   			<h3><%= @question.title %></h3>
   			<p class="body"><%= simple_format(h(@question.content)) %></p>
   			<p class="right"><%= get_user_name(@question) %></p>
   		</div><!--content_main_question-->
+  		<% end %>
 
 		  <div class="panel panel-default">
-		  	<div class="panel-heading">
-					<div>
-						<%# image_tag('no_image.png', :size => "20×20") %>
-						<%= get_user_name(@question) %>
-					</div>
-				</div>
-
-				<div class="panel-body">
-					<h3>
-						<%= @question.title %>
-					</h3>
-					<div class=body"">
-						<%= simple_format(h(@question.content)) %>
-					</div>
-				</div>
+		  	
 				<div class="panel-footer">
-				  <% @question.qthumbnails.each do |qthumbnail| %>
-			    	<a href="<%= qthumbnail.image.url %>" target="_blank"><%= image_tag(qthumbnail.image.thumb.url) %></a>
-			  	<% end %>
+				  
 					
 
 					<% if false %>

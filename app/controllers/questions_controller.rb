@@ -10,7 +10,7 @@ class QuestionsController < ApplicationController
     @answer = @question.answers.build
     @answer.athumbnails.build
     #3.times { @answer.athumbnails.build }
-    @answers = @question.answers
+    @answers = @question.answers.order(created_at: :asc)
   end
 
   def new
@@ -22,6 +22,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
+    #binding.pry
     @question = Question.new(question_params)
     @question.user_id = current_user.id
     #binding.pry

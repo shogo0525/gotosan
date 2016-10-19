@@ -24,15 +24,17 @@ module ApplicationHelper
 		end
 	end
 
-	def get_tag_list
-		tags = ["布石", "定石", "ヨセ", "手筋"]
-	end
-
 	def get_user_name(question)
 		if question.anonym == true
 			return "ユーザー名非公開"
 		else
 			return question.user.name
+		end
+	end
+
+	def get_user_level(question)
+		unless question.user.level.blank?
+			return "（" + question.user.level +  "）"
 		end
 	end
 
