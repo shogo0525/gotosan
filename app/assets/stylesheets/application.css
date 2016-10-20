@@ -46,6 +46,10 @@
 	font-size: 1.7rem;
 }
 
+.dropdown-menu {
+  min-width: 0px;
+}
+
 #main {
 	padding: 20px;
 	border-top: 5px solid brown;

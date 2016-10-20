@@ -1,22 +1,22 @@
 <%= form_for(@question, :html => {:class => 'form'} , multipart: true) do |f| %>
 
     <%# f.error_messages! %>
-      <% if @question.errors.any? %>
-    <div id="error_explanation" class="alert alert-danger">
-      <h2><%= pluralize(@question.errors.count, "error") %> prohibited this post from being saved:</h2>
-      <ul>
-      <% @question.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-    
+    <% if @question.errors.any? %>
+      <div id="error_explanation" class="alert alert-danger">
+        <h2><%= pluralize(@question.errors.count, "error") %> prohibited this post from being saved:</h2>
+        <ul>
+          <% @question.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <div class="field">
 	    <%= f.label :タイトル %>
 	    <%= f.text_field :title, class: 'form-control' %>
     </div>
-    
+
     <div class="field">
 	    <%= f.label :内容 %>
 	    <%= f.text_area :content, :rows => "10", class: 'form-control' %>
@@ -52,7 +52,10 @@
     <% end %>
 
     <div class="actions">
-    	<%= f.submit '質問する', class: 'btn btn-primary btn-block' %>
+      <% if new_or_edit == "new" %>
+        <%= f.submit '質問する', class: 'btn btn-primary btn-block' %>
+      <% else %>
+        <%= f.submit '更新する', class: 'btn btn-primary btn-block' %>
+      <% end %>
     </div>
 <% end %>
-

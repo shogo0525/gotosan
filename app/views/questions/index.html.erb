@@ -18,6 +18,17 @@
 							<span class="answer_count pull-left">
 								<span class="tag label"><%= count_answer(question.id) %></span>
 							</span>
+
+								<% if question.user_id == current_user.id %>
+									<div class="dropdown">
+									  <button class="glyphicon glyphicon-pencil" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+									  </button>
+									  <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+									    <li><%= link_to "編集", edit_question_path(question.id) %></li>
+									    <li><%= link_to '削除', question_path(question.id), method: :delete, data: {confirm: "本当に削除していいですか？?"} %></li>
+									  </ul>
+									</div>
+				      	<% end %>
 						</div>
 					</div>
 
@@ -39,8 +50,8 @@
 				</div>
 			</div>
 
-		
-						
+
+
 						<% if false %>
 						<% if question.user_id == current_user.id %>
 				      <%= link_to "編集", edit_topic_path(question.id), class: 'btn btn-sm btn-success' %>

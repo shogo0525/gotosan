@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_question, only:[:show, :edit, :update, :destroy]
-  
+
   def index
     @questions = Question.all.order(created_at: :desc)
   end
@@ -17,7 +17,7 @@ class QuestionsController < ApplicationController
     @question = Question.new
     #@question.qthumbnails.build
     3.times { @question.qthumbnails.build }
-    
+
     #@tags = get_tag_list
   end
 
@@ -37,9 +37,24 @@ class QuestionsController < ApplicationController
   end
 
   def update
+    if @question.user_id == current_user.id
+      if @question.update(question_params)
+        redirect_to root_path, success: "更新しました！"
+      else
+        redirect_to root_path, warning: "投稿が失敗しました！"
+      end
+    else
+      redirect_to root_path, warning: "不正な操作が行われました！"
+    end
   end
 
   def destroy
+    if @question.user_id == current_user.id
+      @question.destroy
+      redirect_to root_path, success: "削除しました！"
+    else
+      redirect_to root_path, warning: "不正な操作が行われました！"
+    end
   end
 
   def click_tag
