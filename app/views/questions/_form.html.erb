@@ -33,22 +33,22 @@
 
     <!-- ユーザー名非公開機能 -->
     <% if false %>
-    <div class="field">
-      <%= f.check_box :anonym, { class:"custom-checkbox" } %>
-      <%= f.label_tag :anonym, 'ユーザー名非公開で投稿' %>
-    </div>
+      <div class="field">
+        <%= f.check_box :anonym, { class:"custom-checkbox" } %>
+        <%= f.label_tag :anonym, 'ユーザー名非公開で投稿' %>
+      </div>
     <% end %>
 
     <!-- タグクラウド -->
     <% if false %>
-    <% tags = get_tag_list %>
-    <div class="tag_list">
-      <ul>
-      <% tags.each do |tag| %>
-        <li><%= f.check_box  :tag_ids , {multiple: true} %> <%= tag %></li>
-      <% end %>
-      </ul>
-    </div>
+      <% tags = get_tag_list %>
+      <div class="tag_list">
+        <ul>
+        <% tags.each do |tag| %>
+          <li><%= f.check_box  :tag_ids , {multiple: true} %> <%= tag %></li>
+        <% end %>
+        </ul>
+      </div>
     <% end %>
 
     <div class="actions">

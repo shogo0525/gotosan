@@ -3,21 +3,21 @@
     <% unless answer.id.nil? %>
       <li>
         <p class="left"><%= answer.user.name %>さんがコメントしました。</p>
-        <p class="left">
-          <%= simple_format(h(answer.content)) %>
-        </p>
+        <p class="left"><%= simple_format(h(answer.content)) %></p>
           <% answer.athumbnails.each do |athumbnail| %>
             <a href="<%= athumbnail.image.url %>" target="_blank"><%= image_tag(athumbnail.image.thumb.url) %></a>
           <% end %>
 
-        <%if false %>
-        <% if current_user.id == comment.user.id %>
-          <p class="right">
-            <%= link_to '編集', edit_topic_comment_path(topic, comment), class: "fa fa-pencil-square-o fa-lg" %>
-            <%= link_to '削除', topic_comment_path(topic, comment), class: "fa fa-trash-o fa-lg", method: :delete, remote: true, data: { confirm: '本当に削除していいですか？' } %>
-          </p>
-        <% end %>
-        <% end %>
+          <% if answer.user_id == current_user.id %>
+            <div class="dropdown">
+              <button class="glyphicon glyphicon-pencil" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              </button>
+              <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+                <li><%= link_to "編集", edit_question_answer_path(question, answer) %></li>
+                <li><%= link_to '削除', question_answer_path(question, answer), method: :delete, remote: true, data: {confirm: "本当に削除していいですか？?"} %></li>
+              </ul>
+            </div>
+          <% end %>
 
       </li>
     <% end %>
