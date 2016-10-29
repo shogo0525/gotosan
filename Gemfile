@@ -51,14 +51,14 @@ group :development, :test do
   gem 'pry-doc'
   gem 'pry'
   gem 'better_errors'
-  
+
   #Capistranoで使うgem
   gem 'capistrano', '3.6.0'
   gem 'capistrano-bundler'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv'
   gem 'capistrano3-unicorn'
-  
+
 end
 
 group :development do
@@ -102,3 +102,5 @@ gem 'unicorn'
 gem 'acts-as-taggable-on', '~> 3.4'
 
 gem 'lightbox2-rails'
+
+gem "rename"

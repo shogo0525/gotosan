@@ -16,7 +16,7 @@ class QuestionsController < ApplicationController
   def new
     @question = Question.new
     #@question.qthumbnails.build
-    3.times { @question.qthumbnails.build }
+    1.times { @question.qthumbnails.build }
 
     #@tags = get_tag_list
   end
