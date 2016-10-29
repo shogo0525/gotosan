@@ -39,7 +39,7 @@ class QuestionsController < ApplicationController
   def update
     if @question.user_id == current_user.id
       if @question.update(question_params)
-        redirect_to root_path, success: "更新しました！"
+        redirect_to question_path(@question.id), success: "更新しました！"
       else
         redirect_to root_path, warning: "投稿が失敗しました！"
       end

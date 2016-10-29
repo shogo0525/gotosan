@@ -21,6 +21,16 @@
 				</div>
 				<div class="pull-right">
 					<%= get_user_name(@question) %>
+					<% if @question.user_id == current_user.id %>
+						<div class="dropdown">
+							<button class="glyphicon glyphicon-pencil" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+							</button>
+							<ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+								<li><%= link_to "編集", edit_question_path(@question.id) %></li>
+								<li><%= link_to '削除', question_path(@question.id), method: :delete, data: {confirm: "本当に削除していいですか？?"} %></li>
+							</ul>
+						</div>
+					<% end %>
 				</div>
 			</div><!--.content_main_question-->
 
@@ -37,10 +47,10 @@
   		<% end %>
 
 		  <div class="panel panel-default">
-		  	
+
 				<div class="panel-footer">
-				  
-					
+
+
 
 					<% if false %>
 					<% if question.user_id == current_user.id %>
