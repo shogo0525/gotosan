@@ -45,16 +45,6 @@ ActiveRecord::Schema.define(version: 20161009083051) do
 
   add_index "qthumbnails", ["question_id"], name: "index_qthumbnails_on_question_id", using: :btree
 
-  create_table "question_pictures", force: :cascade do |t|
-    t.integer  "question_id"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
-    t.string   "image_file_name"
-    t.string   "image_content_type"
-    t.integer  "image_file_size"
-    t.datetime "image_updated_at"
-  end
-
   create_table "questions", force: :cascade do |t|
     t.string   "title"
     t.text     "content"
